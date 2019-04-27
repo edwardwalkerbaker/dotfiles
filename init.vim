@@ -12,6 +12,9 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'ambv/black'
 Plug 'airblade/vim-gitgutter'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
@@ -36,8 +39,8 @@ nmap k gk
 
 
 """" Appearance
-" put colourscheme files in ~/.vim/colors/
-colorscheme murphy
+" put colourscheme files in ~/.config/nvim/colors/
+colorscheme slate
 
 " use filetype-based highlighting
 syntax enable
@@ -53,7 +56,7 @@ filetype plugin indent on
 
 """ Misc
 " set cursorline
-set background=dark
+" set background=dark
 set autoread
 set smartindent						" better autoindent
 
@@ -67,7 +70,14 @@ let g:lightline = {
   \ }
 
 
+"""" Deoplete settings
+let g:deoplete#enable_at_startup = 1
+
+
 """" Black
 " runs black on save
 autocmd BufWritePost *.py execute ':Black'
 
+
+"""" Solarized
+let g:solarized_termcolors=256
